@@ -1,0 +1,440 @@
+-- Create table
+create table CATEGORY_SLOGN
+(
+  category_id    NUMBER not null,
+  category_name  VARCHAR2(100) not null,
+  otgruz         NUMBER default 0 not null,
+  tehnol         NUMBER default 0 not null,
+  ceh            NUMBER default 0 not null,
+  snabgenie      NUMBER default 0 not null,
+  kraska         NUMBER default 0 not null,
+  otk            NUMBER default 0 not null,
+  kontrol_sborka NUMBER default 0 not null,
+  sklad          NUMBER default 0 not null,
+  material_sklad NUMBER default 0 not null
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table CATEGORY_SLOGN_LOG
+(
+  id      NUMBER not null,
+  in_date DATE default sysdate not null,
+  in_log  VARCHAR2(255) not null
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table CLIENTS
+(
+  client_id    NUMBER not null,
+  client_name  VARCHAR2(100) not null,
+  client_tel   VARCHAR2(100),
+  client_addr  VARCHAR2(100),
+  client_descr VARCHAR2(255),
+  client_code  VARCHAR2(100)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table CLIENTS_LOG
+(
+  id      NUMBER not null,
+  in_date DATE default sysdate not null,
+  in_log  VARCHAR2(255) not null
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table DISP
+(
+  prod_id             NUMBER not null,
+  ver                 NUMBER default 0 not null,
+  prod_name           VARCHAR2(100) default 'noname' not null,
+  prod_descr          VARCHAR2(255),
+  prod_in_db_date     DATE default sysdate not null,
+  client_id           NUMBER,
+  prod_date_in        DATE,
+  tehnolog            VARCHAR2(100),
+  status              VARCHAR2(100),
+  prod_date_sklad     DATE,
+  prod_cena           NUMBER,
+  prod_date_need      DATE,
+  prod_date_otgruzka  DATE,
+  prod_descr_otgruzka VARCHAR2(255)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column DISP.prod_id
+  is 'id produkta';
+comment on column DISP.ver
+  is 'versiya, esli vvod iz bazisa';
+comment on column DISP.prod_name
+  is 'imya zakaza produkta, kak v bazise';
+comment on column DISP.prod_descr
+  is 'opisanie produkta';
+comment on column DISP.prod_in_db_date
+  is 'data vvoda v db';
+comment on column DISP.client_id
+  is 'klient';
+comment on column DISP.prod_date_in
+  is 'data prinyatiya zakaza menedjerom';
+comment on column DISP.tehnolog
+  is 'tehnolog, obrabativauschiy zakaz';
+comment on column DISP.status
+  is 'tekuschee sostoyanie';
+comment on column DISP.prod_date_sklad
+  is 'data postupleniay na sklad gotovoi produkcii';
+comment on column DISP.prod_cena
+  is 'stoimost produkta';
+comment on column DISP.prod_date_need
+  is 'plan data otgruzki';
+comment on column DISP.prod_date_otgruzka
+  is 'fakt data otgruzki';
+comment on column DISP.prod_descr_otgruzka
+  is 'opisanie po otgruzke';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DISP
+  add constraint PK_DISP primary key (PROD_ID)
+  using index 
+  tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table DISP_KUHNI
+(
+  item_id             NUMBER not null,
+  prod_id             NUMBER not null,
+  ver                 NUMBER default 0 not null,
+  prod_name           VARCHAR2(100) default 'noname' not null,
+  prod_descr          VARCHAR2(255),
+  prod_in_db_date     DATE default sysdate not null,
+  client_name         VARCHAR2(100),
+  prod_date_in        DATE,
+  prod_date_need      DATE,
+  mat_name            VARCHAR2(100),
+  mat_descr           VARCHAR2(255),
+  date_tehnol         DATE,
+  tehnolog            VARCHAR2(100),
+  status              VARCHAR2(100),
+  proizvod_plan       DATE,
+  proizvod_fakt       DATE,
+  proizvod_descr      VARCHAR2(255),
+  kraska_plan         DATE,
+  kraska_fakt         DATE,
+  kraska_descr        VARCHAR2(255),
+  otk_plan            DATE,
+  otk_fakt            DATE,
+  kontrol_sborka_plan DATE,
+  kontrol_sborka_fakt DATE,
+  otk_descr           VARCHAR2(255),
+  sklad_gotov_plan    DATE,
+  sklad_gotov_fakt    DATE,
+  snabgen_zayavka     DATE,
+  snabgen_info        VARCHAR2(255),
+  material_na_sklad   VARCHAR2(255),
+  prod_cena           NUMBER,
+  prod_date_otgruzka  DATE,
+  prod_descr_otgruzka VARCHAR2(255),
+  category_slognost   VARCHAR2(100)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column DISP_KUHNI.item_id
+  is 'id';
+comment on column DISP_KUHNI.prod_id
+  is 'id produkta';
+comment on column DISP_KUHNI.ver
+  is 'versiya, esli vvod iz bazisa';
+comment on column DISP_KUHNI.prod_name
+  is 'imya zakaza produkta, kak v bazise';
+comment on column DISP_KUHNI.prod_descr
+  is 'opisanie produkta';
+comment on column DISP_KUHNI.prod_in_db_date
+  is 'data vvoda v db';
+comment on column DISP_KUHNI.client_name
+  is 'klient';
+comment on column DISP_KUHNI.prod_date_in
+  is 'data prinyatiya zakaza menedjerom';
+comment on column DISP_KUHNI.prod_date_need
+  is 'data plan otgruzki';
+comment on column DISP_KUHNI.mat_name
+  is 'material';
+comment on column DISP_KUHNI.mat_descr
+  is 'material opisanie';
+comment on column DISP_KUHNI.date_tehnol
+  is 'date peredacha v teh otdel';
+comment on column DISP_KUHNI.tehnolog
+  is 'tehnolog, obrabativauschiy zakaz';
+comment on column DISP_KUHNI.status
+  is 'tekuschee sostoyanie';
+comment on column DISP_KUHNI.proizvod_plan
+  is 'otdano v proizvodstvo plan';
+comment on column DISP_KUHNI.proizvod_fakt
+  is 'otdano v proizvodstvo fakt';
+comment on column DISP_KUHNI.proizvod_descr
+  is 'otdano v proizvodstvo opisanie';
+comment on column DISP_KUHNI.kraska_plan
+  is 'otdanov pokrasku plan';
+comment on column DISP_KUHNI.kraska_fakt
+  is 'otdanov pokrasku fakt';
+comment on column DISP_KUHNI.kraska_descr
+  is 'otdanov pokrasku opisanie';
+comment on column DISP_KUHNI.otk_plan
+  is 'peredacha v otk plan';
+comment on column DISP_KUHNI.otk_fakt
+  is 'peredacha v otk fakt';
+comment on column DISP_KUHNI.kontrol_sborka_plan
+  is 'kontrolnaya sborka plan';
+comment on column DISP_KUHNI.kontrol_sborka_fakt
+  is 'kontrolnaya sborka fakt';
+comment on column DISP_KUHNI.otk_descr
+  is 'peredacha v otk opisanie';
+comment on column DISP_KUHNI.sklad_gotov_plan
+  is 'postuplenie na sklad gotovoi produkcii plan';
+comment on column DISP_KUHNI.sklad_gotov_fakt
+  is 'postuplenie na sklad gotovoi produkcii fakt';
+comment on column DISP_KUHNI.snabgen_zayavka
+  is 'postuplenie v snabgenie zayavki';
+comment on column DISP_KUHNI.snabgen_info
+  is 'Obrabotka zayavki snabgeniya';
+comment on column DISP_KUHNI.material_na_sklad
+  is 'postuplenie materiala na sklad po snabgeniu';
+comment on column DISP_KUHNI.prod_cena
+  is 'stoimost produkta';
+comment on column DISP_KUHNI.prod_date_otgruzka
+  is 'fakt data otgruzki';
+comment on column DISP_KUHNI.prod_descr_otgruzka
+  is 'opisanie po otgruzke';
+comment on column DISP_KUHNI.category_slognost
+  is 'kategoriya slognosti ispolneniya';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DISP_KUHNI
+  add constraint PK_DISP_KUHNI primary key (ITEM_ID)
+  using index 
+  tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table DISP_MATERIAL
+(
+  prod_id    NUMBER not null,
+  dsp        VARCHAR2(255),
+  fasadi     VARCHAR2(255),
+  dsp_kraska VARCHAR2(255),
+  dvp        VARCHAR2(255),
+  furnitura  VARCHAR2(255),
+  vitraji    VARCHAR2(255),
+  stoleshka  VARCHAR2(255),
+  skinali    VARCHAR2(255),
+  dopolnit   VARCHAR2(255)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column DISP_MATERIAL.prod_id
+  is 'id produkta';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DISP_MATERIAL
+  add constraint PK_DISP_MAT primary key (PROD_ID)
+  using index 
+  tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+alter table DISP_MATERIAL
+  add constraint FK_DISP foreign key (PROD_ID)
+  references DISP (PROD_ID) on delete cascade;
+
+  -- Create table
+create table PERSONAL
+(
+  pers_id   NUMBER not null,
+  pers_type VARCHAR2(100) not null,
+  pers_name VARCHAR2(100)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table STATUS_DESCR
+(
+  id      NUMBER not null,
+  status  VARCHAR2(255) not null,
+  admin   NUMBER default 0 not null,
+  common  NUMBER default 0 not null,
+  manager NUMBER default 0 not null,
+  otk     NUMBER default 0 not null,
+  logist  NUMBER default 0 not null,
+  sklad   NUMBER default 0 not null
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table TEST_KUHNI
+(
+  id     NUMBER not null,
+  nomer  VARCHAR2(255) not null,
+  descr  VARCHAR2(255),
+  status VARCHAR2(255)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table USERS
+(
+  user_id    NUMBER not null,
+  user_name  VARCHAR2(100) not null,
+  user_pass  VARCHAR2(100) not null,
+  user_descr VARCHAR2(255)
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create unique index PK_USERS on USERS (USER_ID)
+  tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+  -- Create table
+create table VARS
+(
+  vars_id    NUMBER not null,
+  vars_name  VARCHAR2(100) not null,
+  vars_value VARCHAR2(100) not null
+)
+tablespace KUHNI_MODUL_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

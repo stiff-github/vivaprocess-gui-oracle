@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29E7F335-E201-44A0-A418-B159B2EDB1D1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>vivaprocess</RootNamespace>
+    <AssemblyName>vivaprocess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gnucash.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>vivaprocess.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v14.2" />
+    <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v14.2" />
+    <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.2" />
+    <Reference Include="DevExpress.Sparkline.v14.2.Core" />
+    <Reference Include="DevExpress.Utils.v14.2.UI, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2" />
+    <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\app\oraodac\odp.net\bin\2.x\Oracle.DataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCategorSlogn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategorSlogn.Designer.cs">
+      <DependentUpon>frmCategorSlogn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClients.Designer.cs">
+      <DependentUpon>frmClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteBase.Designer.cs">
+      <DependentUpon>frmDeleteBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfo.designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKuhniDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKuhniDo.designer.cs">
+      <DependentUpon>frmKuhniDo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKuhniFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKuhniFull.Designer.cs">
+      <DependentUpon>frmKuhniFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKuhniSlegFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKuhniSlegFull.Designer.cs">
+      <DependentUpon>frmKuhniSlegFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptOtgruzFakt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptOtgruzFakt.Designer.cs">
+      <DependentUpon>frmRptOtgruzFakt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptOtgruzNeed2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptOtgruzNeed2.Designer.cs">
+      <DependentUpon>frmRptOtgruzNeed2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptZakazClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptZakazClient.Designer.cs">
+      <DependentUpon>frmRptZakazClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptReklamac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptReklamac.Designer.cs">
+      <DependentUpon>frmRptReklamac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptOtgruzNeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptOtgruzNeed.Designer.cs">
+      <DependentUpon>frmRptOtgruzNeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReklamac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReklamac.Designer.cs">
+      <DependentUpon>frmReklamac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSlegenMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSlegenMaterial.Designer.cs">
+      <DependentUpon>frmSlegenMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatusSpisok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatusSpisok.designer.cs">
+      <DependentUpon>frmStatusSpisok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsers.designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptKuhniMat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptKuhniMat.Designer.cs">
+      <DependentUpon>rptKuhniMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptKuhni1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptKuhni1.Designer.cs">
+      <DependentUpon>rptKuhni1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptOtgruzFakt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptOtgruzFakt.Designer.cs">
+      <DependentUpon>rptOtgruzFakt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptOtgruzNeedCena.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptOtgruzNeedCena.Designer.cs">
+      <DependentUpon>rptOtgruzNeedCena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptOtgruzNeedCena2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptOtgruzNeedCena2.Designer.cs">
+      <DependentUpon>rptOtgruzNeedCena2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptZakazClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptZakazClient.Designer.cs">
+      <DependentUpon>rptZakazClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptReklamacii.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptReklamacii.Designer.cs">
+      <DependentUpon>rptReklamacii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptOtgruzNeed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptOtgruzNeed.Designer.cs">
+      <DependentUpon>rptOtgruzNeed.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmCategorSlogn.resx">
+      <DependentUpon>frmCategorSlogn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClients.resx">
+      <DependentUpon>frmClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteBase.resx">
+      <DependentUpon>frmDeleteBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKuhniDo.resx">
+      <DependentUpon>frmKuhniDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKuhniFull.resx">
+      <DependentUpon>frmKuhniFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKuhniSlegFull.resx">
+      <DependentUpon>frmKuhniSlegFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptOtgruzFakt.resx">
+      <DependentUpon>frmRptOtgruzFakt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptOtgruzNeed2.resx">
+      <DependentUpon>frmRptOtgruzNeed2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptZakazClient.resx">
+      <DependentUpon>frmRptZakazClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptReklamac.resx">
+      <DependentUpon>frmRptReklamac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptOtgruzNeed.resx">
+      <DependentUpon>frmRptOtgruzNeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReklamac.resx">
+      <DependentUpon>frmReklamac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSlegenMaterial.resx">
+      <DependentUpon>frmSlegenMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatusSpisok.resx">
+      <DependentUpon>frmStatusSpisok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="rptKuhniMat.resx">
+      <DependentUpon>rptKuhniMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptKuhni1.resx">
+      <DependentUpon>rptKuhni1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOtgruzFakt.resx">
+      <DependentUpon>rptOtgruzFakt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOtgruzNeedCena.resx">
+      <DependentUpon>rptOtgruzNeedCena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOtgruzNeedCena2.resx">
+      <DependentUpon>rptOtgruzNeedCena2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptZakazClient.resx">
+      <DependentUpon>rptZakazClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptReklamacii.resx">
+      <DependentUpon>rptReklamacii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOtgruzNeed.resx">
+      <DependentUpon>rptOtgruzNeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gnucash.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
